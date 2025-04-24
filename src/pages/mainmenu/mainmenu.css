@@ -1,0 +1,27 @@
+/* .greenTransition {
+    transition: background-color 200ms ease;
+}
+
+.menuButton:hover .greenTransition {
+    background-color: #5C9E9D;
+}
+
+.menuButton:active .greenTransition {
+    background-color: #5C9E9D;
+}
+
+.menuButton:focus .greenTransition {
+    background-color: #5C9E9D;
+}
+
+.menuButton:target .greenTransition {
+    background-color: #5C9E9D;
+} */
+
+.svg {
+    width: 100px;
+    height: 100px;
+    background-color: #5C9E9D;
+    padding: 0px 10px;
+    border-radius: 8px;
+}

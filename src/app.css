@@ -1,0 +1,10 @@
+:root {
+    --background: hsl(180, 41%, 37%);
+    --gray:hsl(220, 33%, 98%);
+    --gray-border: hsl(225, 17%, 95%);
+    --gray-border-transp: hsla(225, 17%, 95%, 0.8);
+}
+
+.inactive {
+    display: none;
+}
