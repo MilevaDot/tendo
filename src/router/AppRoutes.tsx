@@ -17,6 +17,7 @@ import WebsiteProduct from "../pages/website/WebsiteProduct"
 import WebsiteService from "../pages/website/WebsiteService"
 import WebsiteUs from "../pages/website/WebsiteUs"
 import WebsiteProductDetail from "../pages/website/WebsiteProductDetail"
+import WebsiteCart from "../pages/website/WebsiteCart"
 
 const { Login, MainMenu, Products, Warehouse, WarehouseCreate, WarehouseForm, NotFound } = Elements
 
@@ -30,6 +31,7 @@ const AppRoutes = () => {
                 <Route path={Paths.WebsiteService} element={ <WebsiteService /> } />
                 <Route path={Paths.WebsiteUs} element={ <WebsiteUs /> } />
                 <Route path={Paths.WebsiteProductDetail} element={ <WebsiteProductDetail /> } />
+                <Route path={Paths.WebsiteCart} element={ <WebsiteCart /> } />
             </Route>
 
             <Route element={ <MainMenuOutlet /> }>

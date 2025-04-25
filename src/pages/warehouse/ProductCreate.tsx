@@ -5,19 +5,20 @@ import { toast } from "sonner";
 import HelperHelment from "../../helpers/HelperHelmet";
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Checkbox, FormControl, FormLabel, HStack, Icon, Image, Input } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Paths } from "../../router/routes";
 import { FaBoxOpen } from "react-icons/fa";
 
 const ProductCreate = () => {
     const formRef = useRef<HTMLFormElement>(null)
     const [photoUrl, setPhotoUrl] = useState<string>('')
+    const navigate = useNavigate()
 
     const createForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const form = e.currentTarget
         const data = new FormData(form)
-        const { name, code, price, published, photoinput } = Object.fromEntries(data.entries())
+        const { name, code, price, published, available_quantity, photoinput } = Object.fromEntries(data.entries())
         const isPublished = published === 'on'
         await database.createDocument(
             Appwrite.databaseId,
@@ -28,6 +29,7 @@ const ProductCreate = () => {
                 'code': code,
                 'price': parseFloat(price as string),
                 'published': isPublished,
+                'available_quantity': Number(available_quantity)
             }
         ).then(async (resProduct) => {
             await storage.createFile(
@@ -48,20 +50,21 @@ const ProductCreate = () => {
                         photo_url: `${photoPreview}&mode=admin`
                     }
                 ).then(() => {
+                    navigate(`/products/${resProduct.$id}`)
                     toast.success('Producto creado')
                 }).catch(() => {
                     toast.error('Algo salió mal', {
-                        description: 'No se pudo crear el producto'
+                        description: 'No se pudo crear el producto 1'
                     })
                 })
             }).catch(() => {
                 toast.error('Algo salió mal', {
-                    description: 'No se pudo crear el producto'
+                    description: 'No se pudo crear el producto 2'
                 })
             })
         }).catch(() => {
             toast.error('Algo salió mal', {
-                description: 'No se pudo crear el producto'
+                description: 'No se pudo crear el producto 3'
             })
         })
     }
@@ -144,6 +147,10 @@ const ProductCreate = () => {
                         </FormControl>
                     </HStack>
                     <HStack gap='10em'>
+                        <FormControl>
+                            <FormLabel>Cantidad disponible</FormLabel>
+                            <Input type='number' name='available_quantity' required/>
+                        </FormControl>
                         <FormControl>
                             <FormLabel>Publicado</FormLabel>
                             <Checkbox

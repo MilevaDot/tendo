@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, SimpleGrid, Stack, Text, useDisclosure } from "@chakra-ui/react"
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, SimpleGrid, Stack, Text, useDisclosure } from "@chakra-ui/react"
 import HelperHelment from "../../helpers/HelperHelmet"
 import { useEffect, useState } from "react"
 import { database } from "../../lib/appwrite"
@@ -9,6 +9,8 @@ import { LuShoppingCart } from "react-icons/lu"
 import { Link } from "react-router-dom"
 import { useCart } from "../../shared/store/useCart"
 import DrawerCart from "../../shared/components/drawer/DrawerCart"
+import { ChevronRightIcon } from "@chakra-ui/icons"
+import { Paths } from "../../router/routes"
 
 const WebsiteProduct = () => {
     const [products, setProducts] = useState<Array<ProductType>>()
@@ -40,9 +42,18 @@ const WebsiteProduct = () => {
             <HelperHelment title='Tendo | Productos' />
             <Box paddingTop='100px'>
 
+                <Breadcrumb p='0 2.4em' spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink as={Link} to={Paths.Website}>Inicio</BreadcrumbLink>
+                    </BreadcrumbItem>
+
+                    <BreadcrumbItem isCurrentPage>
+                        <BreadcrumbLink color='teal'>Productos</BreadcrumbLink>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+
                 <Box p='2.4em'>
                     <Heading>Somos tu mejor elección</Heading>
-
                     <SimpleGrid p='1em 0' spacing={8} templateColumns='repeat(auto-fill, minmax(220px, 1fr))'>
                         {
                             products?.map(product => (

@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from "@chakra-ui/icons"
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, FormControl, FormLabel, HStack, Icon, Image, Input } from "@chakra-ui/react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Paths } from "../../router/routes"
 import { useRef, useState } from "react"
 import { database, ID, storage } from "../../lib/appwrite"
@@ -13,6 +13,7 @@ import HelperHelment from "../../helpers/HelperHelmet"
 const AgendaCreate = () => {
     const formRef = useRef<HTMLFormElement>(null)
     const [photoUrl, setPhotoUrl] = useState<string>('')
+    const navigate = useNavigate()
 
     const createForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -32,16 +33,29 @@ const AgendaCreate = () => {
             }
         ).then( async (res) => {
             console.log(res)
-            await storage.createFile(Appwrite.bucketFilesId, ID.unique(), photoinput as File).then(async (response) => {
-                const photoPreview = storage.getFilePreview(Appwrite.bucketFilesId, response.$id)
+            await storage.createFile(
+                Appwrite.bucketFilesId,
+                ID.unique(),
+                photoinput as File
+            ).then(async (response) => {
+                const photoPreview = storage.getFilePreview(
+                    Appwrite.bucketFilesId,
+                    response.$id
+                )
                 setPhotoUrl(`${photoPreview}&mode=admin`)
                 const agendaRecord = await database.listDocuments(Appwrite.databaseId, Appwrite.collections.agenda, [
                     Query.equal('email', email as string)
                 ])
                 console.log(`${photoPreview}&mode=admin`)
-                await database.updateDocument(Appwrite.databaseId, Appwrite.collections.agenda, agendaRecord.documents[0].$id, {
-                    photo_address: `${photoPreview}&mode=admin`
-                }).then(() => {
+                await database.updateDocument(
+                    Appwrite.databaseId,
+                    Appwrite.collections.agenda,
+                    agendaRecord.documents[0].$id,
+                    {
+                        photo_address: `${photoPreview}&mode=admin`
+                    }
+                ).then(() => {
+                    navigate(`/agenda/${res.$id}`)
                     toast.success('Contacto creado')
                 }).catch(() => {
                     toast.error('Algo salió mal')
