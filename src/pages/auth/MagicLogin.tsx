@@ -18,7 +18,7 @@ const MagicLogin = () => {
         await account.createSession(userId!, secret!).then((session) =>{
             localStorage.setItem('appwriteSessionId', session.$id)
             toast.success('Iniciaste sesión')
-            navigate(Paths.MainMenu)
+            navigate(Paths.Website)
         }).catch(() => {
             toast.error('Algo salió mal', {
                 description: 'No se pudo iniciar sesión'

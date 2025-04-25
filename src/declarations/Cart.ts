@@ -1,7 +1,14 @@
 import { ProductType } from "./Warehouse"
 
+export type CartItem = {
+    product: ProductType
+    quantity: number
+}
+
 export type Cart = {
-    productCart: ProductType[]
+    productCart: CartItem[]
     addToCart: (product: ProductType) => void
-    deleteItem: (productId: number) => void
+    lessToCart: (product: ProductType) => void
+    deleteItem: (productId: string) => void
+    clearCart: () => void
 }

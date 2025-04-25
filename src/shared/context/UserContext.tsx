@@ -40,10 +40,9 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     }
 
     const loadData = async () => {
-        await getSession()
         await getProfile()
+        await getSession()
     }
-
 
     const logOut = async () => {
         await account.deleteSession(appwriteSession!).then(() => {
@@ -61,7 +60,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         account.createEmailPasswordSession(email, password).then((response) => {
             localStorage.setItem('appwriteSessionId', response.$id)
             toast.success('Sesión iniciada')
-            navigate(Paths.MainMenu)
+            navigate(Paths.Website)
         }).catch(() => {
             toast.error('Algo salió mal', {
                 description: 'El usuario y/o contraseña no son correctos'

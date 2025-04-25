@@ -9,7 +9,7 @@ const Navbar = () => {
 
     const context = useContext(UserContext)
     useEffect(() => {
-        context?.getSession
+        context?.getSession()
         context?.getProfile()
     }, [])
 

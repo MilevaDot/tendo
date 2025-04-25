@@ -6,4 +6,5 @@ export interface AgendaType extends Models.Document {
     photo_address: string
     phone: string
     dni: string
+    type: 'Interno' | 'Externo'
 }

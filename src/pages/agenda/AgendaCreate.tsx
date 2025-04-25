@@ -30,7 +30,8 @@ const AgendaCreate = () => {
                 'phone': phone,
                 'dni': dni
             }
-        ).then( async () => {
+        ).then( async (res) => {
+            console.log(res)
             await storage.createFile(Appwrite.bucketFilesId, ID.unique(), photoinput as File).then(async (response) => {
                 const photoPreview = storage.getFilePreview(Appwrite.bucketFilesId, response.$id)
                 setPhotoUrl(`${photoPreview}&mode=admin`)

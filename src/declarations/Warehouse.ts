@@ -8,6 +8,7 @@ export interface WarehouseType extends Models.Document {
 }
 
 export interface ProductType extends Models.Document {
+    $id: string
     name: string
     code: string
     price: number

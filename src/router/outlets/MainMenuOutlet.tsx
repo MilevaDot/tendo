@@ -1,10 +1,16 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { Paths } from "../routes"
+import { useContext } from "react"
+import { UserContext } from "../../shared/context/UserContext"
 
 const MainMenuOutlet = () => {
-    const session = localStorage.getItem('appwriteSessionId')
+    const context = useContext(UserContext)
     return (
-        session ? <Outlet /> : <Navigate to={Paths.Login} />
+        context?.profile?.type == 'Interno'
+            ?
+            <Outlet />
+            :
+            <Navigate to={Paths.Website} />
     )
 }
 

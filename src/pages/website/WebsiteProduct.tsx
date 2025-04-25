@@ -27,9 +27,7 @@ const WebsiteProduct = () => {
     }
 
     const addProduct = (product: ProductType) => {
-        console.log(product)
         addToCart(product)
-        console.log(productCart)
         onOpen()
     }
 

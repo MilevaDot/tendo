@@ -61,18 +61,15 @@ const AgendaForm = () => {
         const data = new FormData(form)
         const { name, email, phone, dni, photoinput } = Object.fromEntries(data.entries())
 
-        // await storage.createFile(Appwrite.bucketFilesId, ID.unique(), photoinput as File).then(async (response) => {
-            
-        //     const photoPreview = storage.getFilePreview(Appwrite.bucketFilesId, response.$id)
-        //     setPhotoUrl(`${photoPreview}&mode=admin`)
-        // }).then(async () => {
+        await storage.createFile(Appwrite.bucketFilesId, ID.unique(), photoinput as File).then(async (response) => {
+            const photoPreview = storage.getFilePreview(Appwrite.bucketFilesId, response.$id)
             await database.updateDocument(
                 Appwrite.databaseId,
                 Appwrite.collections.agenda,
                 agenda!.$id, {
                     name: name,
                     email: email,
-                    photo_address: photoUrl,
+                    photo_address: `${photoPreview}&mode=admin`,
                     phone: phone,
                     dni: dni,
                 }
@@ -81,12 +78,13 @@ const AgendaForm = () => {
             }).catch(() => {
                 toast.error('No se logró|')
             })
-        // })
+            console.log(response)
+        })
     }
 
     useEffect(() => {
         getAgenda()
-    }, [])
+    }, [id])
 
     return (
         <>

@@ -1,12 +1,15 @@
-import { Box, Heading, HStack } from "@chakra-ui/react"
+import { Avatar, Box, Button, Heading, HStack, useDisclosure } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import { Paths } from "../../../router/routes"
-import { useState } from "react"
+import { useContext, useEffect, useLayoutEffect, useState } from "react"
 import './navbarwebsite.css'
+import { UserContext } from "../../context/UserContext"
+import DrawerProfile from "../drawer/DrawerProfile"
 
 const NavbarWebsite = () => {
     const [isScrolled, setIsScrolled] = useState(false)
-
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const context = useContext(UserContext)
     const scrolling = () => {
         if ( window.scrollY >= 100 ) {
             setIsScrolled(true)
@@ -14,11 +17,15 @@ const NavbarWebsite = () => {
             setIsScrolled(false)
         }
     }
-    window.addEventListener('scroll', scrolling)
-    // useEffect(() => {
-    //     scrolling()
-    // }, [window.scrollY])
 
+    useLayoutEffect(() => {
+        window.addEventListener('scroll', scrolling)
+    }, [])
+
+    useEffect(() => {
+        context?.getSession()
+        context?.getProfile()
+    }, [])
     return (
         <>
             <HStack
@@ -36,9 +43,19 @@ const NavbarWebsite = () => {
                     <Link to={Paths.WebsiteUs}>Nosotros</Link>
                     <Link to={Paths.WebsiteProduct}>Productos</Link>
                     <Link to={Paths.WebsiteService}>Servicios</Link>
-                    <Link to={Paths.Login}>Ingresar</Link>
+                    {
+                        context?.session
+                            ?
+                                <Button variant='ghost' onClick={onOpen}>
+                                    <Avatar size='sm' src={context.profile?.photo_address} />
+                                </Button>
+                            :
+                            <Link to={Paths.Login}>Ingresar</Link>
+                    }
                 </Box>
             </HStack>
+            <DrawerProfile isOpen={isOpen} onClose={onClose} />
+
         </>
     )
 }

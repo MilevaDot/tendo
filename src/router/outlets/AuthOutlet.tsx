@@ -4,7 +4,7 @@ import { Paths } from "../routes"
 const AuthOutlet = () => {
     const session = localStorage.getItem('appwriteSessionId')
     return (
-        session ? <Navigate to={Paths.MainMenu} /> : <Outlet />
+        session ? <Navigate to={Paths.Website} /> : <Outlet />
     )
 }
 
