@@ -12,7 +12,7 @@ import DrawerCart from "../../shared/components/drawer/DrawerCart"
 
 const WebsiteProduct = () => {
     const [products, setProducts] = useState<Array<ProductType>>()
-    const { productCart, addToCart } = useCart()
+    const { addToCart } = useCart()
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const getProducts = async () => {

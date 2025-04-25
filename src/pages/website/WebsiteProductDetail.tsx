@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import HelperHelment from "../../helpers/HelperHelmet"
 import { ProductType } from "../../declarations/Warehouse"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { database } from "../../lib/appwrite"
 import { Appwrite } from "../../lib/env"
 import { Box, Button, ButtonGroup, Heading, HStack, Image, Text } from "@chakra-ui/react"
@@ -11,7 +11,6 @@ import { CiHeart } from "react-icons/ci"
 const WebsiteProductDetail = () => {
     const [product, setProduct] = useState<ProductType>()
     const { id } = useParams()
-    const navigate = useNavigate()
 
     const getProduct = async () => {
         const response = await database.getDocument(
