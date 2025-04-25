@@ -8,7 +8,7 @@ import { Badge, Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Checkbo
 import { ChevronRightIcon, Search2Icon } from "@chakra-ui/icons"
 import { Link } from "react-router-dom"
 import { Paths } from "../../router/routes"
-import SkeletonLoader from "../../shared/components/loader/SkeletonLoader"
+import HelperSkeleton from "../../helpers/HelperSkeleton"
 
 const Products = () => {
     const [products, setProducts] = useState<Array<ProductType>>()
@@ -92,6 +92,7 @@ const Products = () => {
                                 <Th paddingY='0.8em'>Código</Th>
                                 <Th paddingY='0.8em'>Nombre</Th>
                                 <Th paddingY='0.8em'>Precio</Th>
+                                <Th paddingY='0.8em'>Cant. Disponible</Th>
                                 <Th paddingY='0.8em'>Publicado</Th>
                             </Tr>
                         </Thead>
@@ -99,10 +100,7 @@ const Products = () => {
                             {
                                 loading ?
                                     <>
-                                        <SkeletonLoader />
-                                        <SkeletonLoader />
-                                        <SkeletonLoader />
-                                        <SkeletonLoader />
+                                        <HelperSkeleton column={6} />
                                     </>
                                 :
                                 products?.map(product => (
@@ -125,6 +123,11 @@ const Products = () => {
                                         <Td>
                                             <Link to={`/products/${product.$id}`}>
                                                 {product.price}
+                                            </Link>
+                                        </Td>
+                                        <Td>
+                                            <Link to={`/products/${product.$id}`}>
+                                                {product.available_quantity}
                                             </Link>
                                         </Td>
                                         <Td>

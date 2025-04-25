@@ -58,7 +58,7 @@ const DrawerProfile = ({ isOpen, onClose } : {
                         Mis Compras
                     </MenuButton>
                     <MenuList>
-                        <MenuItem>Mi compra actual</MenuItem>
+                        <MenuItem as={Link} to={Paths.WebsiteCart}>Mi compra actual</MenuItem>
                         <MenuItem>Historial de compras</MenuItem>
                     </MenuList>
                 </Menu>

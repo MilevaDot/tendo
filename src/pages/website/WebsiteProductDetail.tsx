@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react"
 import HelperHelment from "../../helpers/HelperHelmet"
 import { ProductType } from "../../declarations/Warehouse"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { database } from "../../lib/appwrite"
 import { Appwrite } from "../../lib/env"
-import { Box, Button, ButtonGroup, Heading, HStack, Image, Text } from "@chakra-ui/react"
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, ButtonGroup, Heading, HStack, Image, Text } from "@chakra-ui/react"
 import { LuShoppingCart } from "react-icons/lu"
 import { CiHeart } from "react-icons/ci"
+import { ChevronRightIcon } from "@chakra-ui/icons"
+import { Paths } from "../../router/routes"
 
 const WebsiteProductDetail = () => {
     const [product, setProduct] = useState<ProductType>()
     const { id } = useParams()
-    const navigate = useNavigate()
 
     const getProduct = async () => {
         const response = await database.getDocument(
@@ -31,6 +32,21 @@ const WebsiteProductDetail = () => {
         <>
             <HelperHelment title={`Tendo | ${product?.name}`} />
             <Box paddingTop='100px'>
+
+                <Breadcrumb p='0 2.4em' spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink as={Link} to={Paths.Website}>Inicio</BreadcrumbLink>
+                    </BreadcrumbItem>
+
+                    <BreadcrumbItem>
+                        <BreadcrumbLink as={Link} to={Paths.WebsiteProduct}>Productos</BreadcrumbLink>
+                    </BreadcrumbItem>
+
+                    <BreadcrumbItem isCurrentPage>
+                        <BreadcrumbLink color='teal'>{product?.name}</BreadcrumbLink>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+
                 <Box p='2.4em'>
                     <HStack gap='3em'>
                         <Box w='40%'>

@@ -67,6 +67,7 @@ const ProductForm = () => {
                 code: formFields.code,
                 price: parseFloat(formFields.price as string),
                 published: formFields.published ? true: false,
+                available_quantity: Number(formFields.available_quantity),
             }
         ).then(() => {
             toast.success('Producto editado')
@@ -168,6 +169,10 @@ const ProductForm = () => {
                         </FormControl>    
                     </HStack>
                     <HStack gap='10em'>
+                        <FormControl>
+                            <FormLabel>Cantidad disponible</FormLabel>
+                            <Input type='number' name='available_quantity' disabled={edit ? false : true} defaultValue={product?.available_quantity}/>
+                        </FormControl>
                         <FormControl>
                             <FormLabel>Publicado</FormLabel>
                             <Checkbox

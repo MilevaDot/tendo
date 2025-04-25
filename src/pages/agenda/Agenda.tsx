@@ -2,7 +2,6 @@ import { ChevronRightIcon, Search2Icon } from "@chakra-ui/icons"
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Checkbox, HStack, Input, InputGroup, InputLeftElement, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 // import FilterButton from "../../shared/components/filter/FilterButton"
-import SkeletonLoader from "../../shared/components/loader/SkeletonLoader"
 import { useEffect, useState } from "react"
 import { AgendaType } from "../../declarations/Agenda"
 import { database } from "../../lib/appwrite"
@@ -10,6 +9,7 @@ import { Appwrite } from "../../lib/env"
 import { Query } from "appwrite"
 import { Paths } from "../../router/routes"
 import HelperHelment from "../../helpers/HelperHelmet"
+import HelperSkeleton from "../../helpers/HelperSkeleton"
 
 const Agenda = () => {
     const [agendas, setAgendas] = useState<Array<AgendaType>>()
@@ -108,10 +108,7 @@ const Agenda = () => {
                             {
                                 loading ?
                                     <>
-                                        <SkeletonLoader />
-                                        <SkeletonLoader />
-                                        <SkeletonLoader />
-                                        <SkeletonLoader />
+                                        <HelperSkeleton column={5} />
                                     </>
                                 :
                                 agendas?.map(agenda => (

@@ -25,6 +25,7 @@ export const Elements = {
     WebsiteProductDetail: lazy(() => import('../pages/website/WebsiteProductDetail')),
     WebsiteService: lazy(() => import('../pages/website/WebsiteService')),
     WebsiteUs: lazy(() => import('../pages/website/WebsiteUs')),
+    WebsiteCart: lazy(() => import('../pages/website/WebsiteCart')),
 
     NotFound: lazy(() => import('../pages/NotFound')),
 }
@@ -54,4 +55,5 @@ export const Paths = {
     WebsiteProductDetail: '/websiteproduct/:id',
     WebsiteService: '/websiteservice',
     WebsiteUs: '/websiteseus',
+    WebsiteCart: '/websitecart',
 }
