@@ -8,9 +8,9 @@ import { Appwrite } from "../../lib/env"
 import { ChevronRightIcon, Search2Icon } from "@chakra-ui/icons"
 import { Query } from "appwrite"
 // import { FiFilter } from "react-icons/fi"
-import SkeletonLoader from "../../shared/components/loader/SkeletonLoader"
 import FilterButton from "../../shared/components/filter/FilterButton"
 import HelperHelment from "../../helpers/HelperHelmet"
+import HelperSkeleton from "../../helpers/HelperSkeleton"
 // import Breadcrumbs from "../../shared/components/breadcrumbs/Breadcrumbs"
 
 const Warehouse = () => {
@@ -149,10 +149,7 @@ const Warehouse = () => {
                             {
                                 loading ?
                                     <>
-                                        <SkeletonLoader />
-                                        <SkeletonLoader />
-                                        <SkeletonLoader />
-                                        <SkeletonLoader />
+                                        <HelperSkeleton column={5} />
                                     </>
                                 :
                                 warehouses?.map(warehouse => (

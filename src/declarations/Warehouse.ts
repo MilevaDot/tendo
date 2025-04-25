@@ -14,4 +14,5 @@ export interface ProductType extends Models.Document {
     price: number
     photo_url: string
     published: boolean
+    available_quantity: number
 }
