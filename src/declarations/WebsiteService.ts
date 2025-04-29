@@ -6,6 +6,9 @@ export interface ServiceCardProps {
     description: string
     tooltip: string
     images: ReactNode
+    benefits?: BenefitProps[]
+    slogan?: string
+    cita?:React.ReactNode
 }
 
 export interface ImageItem {
@@ -17,4 +20,9 @@ export interface ImageItem {
 
 export interface ImageGridProps {
     imageList: ImageItem[]
+}
+
+export interface BenefitProps {
+    icon: React.ElementType
+    text: string
 }
