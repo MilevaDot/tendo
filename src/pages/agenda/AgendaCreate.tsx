@@ -38,7 +38,8 @@ const AgendaCreate = () => {
                 ID.unique(),
                 photoinput as File
             ).then(async (response) => {
-                const photoPreview = storage.getFilePreview(
+                // const photoPreview = storage.getFilePreview(
+                const photoPreview = storage.getFileDownload(
                     Appwrite.bucketFilesId,
                     response.$id
                 )
