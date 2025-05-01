@@ -37,7 +37,9 @@ const ProductCreate = () => {
                 ID.unique(),
                 photoinput as File
             ).then(async (resFile) => {
-                const photoPreview = storage.getFilePreview(
+                console.log(resFile)
+                const photoPreview = storage.getFileDownload(
+                // const photoPreview = storage.getFilePreview(
                     Appwrite.bucketFilesId,
                     resFile.$id
                 )
