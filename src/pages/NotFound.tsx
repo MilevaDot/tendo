@@ -1,4 +1,4 @@
-import HelperHelment from "../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 
 const NotFound = () => {
     return (

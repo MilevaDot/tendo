@@ -26,6 +26,8 @@ export const Elements = {
     WebsiteService: lazy(() => import('../pages/website/WebsiteService')),
     WebsiteUs: lazy(() => import('../pages/website/WebsiteUs')),
     WebsiteCart: lazy(() => import('../pages/website/WebsiteCart')),
+    WebsitePayment: lazy(() => import('../pages/website/WebsitePayment')),
+    WebsiteVoucher: lazy(() => import('../pages/website/WebsiteVoucher')),
 
     NotFound: lazy(() => import('../pages/NotFound')),
 }
@@ -56,4 +58,6 @@ export const Paths = {
     WebsiteService: '/websiteservice',
     WebsiteUs: '/websiteseus',
     WebsiteCart: '/websitecart',
+    WebsitePayment: '/websitepayment',
+    WebsiteVoucher: '/websitevoucher',
 }

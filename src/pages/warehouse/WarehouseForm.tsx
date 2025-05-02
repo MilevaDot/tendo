@@ -6,7 +6,7 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Checkbox, FormControl, FormLabel, HStack, Input } from "@chakra-ui/react"
 import { ChevronRightIcon, DeleteIcon } from "@chakra-ui/icons"
 import { toast } from "sonner"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 import './warehouseform.css'
 import { Paths } from "../../router/routes"
 

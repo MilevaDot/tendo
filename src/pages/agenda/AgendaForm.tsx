@@ -8,16 +8,15 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 import { toast } from "sonner"
 import './agendaform.css'
 import { FaUser } from "react-icons/fa"
-import { UserContext } from "../../shared/context/UserContext"
 import { Paths } from "../../router/routes"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
+import { UserContext } from "@context/UserContext"
 
 const AgendaForm = () => {
     const [agenda, setAgenda] = useState<AgendaType>()
     const [edit, setEdit] = useState<boolean>(false)
     const [invisible, setInvisible] = useState<boolean>(true)
     const formRef = useRef<HTMLFormElement>(null)
-    const [photoUrl, setPhotoUrl] = useState<string>('')
     const context = useContext(UserContext)
 
 
@@ -62,7 +61,8 @@ const AgendaForm = () => {
         const { name, email, phone, dni, photoinput } = Object.fromEntries(data.entries())
 
         await storage.createFile(Appwrite.bucketFilesId, ID.unique(), photoinput as File).then(async (response) => {
-            const photoPreview = storage.getFilePreview(Appwrite.bucketFilesId, response.$id)
+            // const photoPreview = storage.getFilePreview(Appwrite.bucketFilesId, response.$id)
+            const photoPreview = storage.getFileDownload(Appwrite.bucketFilesId, response.$id)
             await database.updateDocument(
                 Appwrite.databaseId,
                 Appwrite.collections.agenda,

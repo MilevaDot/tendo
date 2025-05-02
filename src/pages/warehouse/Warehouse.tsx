@@ -9,8 +9,8 @@ import { ChevronRightIcon, Search2Icon } from "@chakra-ui/icons"
 import { Query } from "appwrite"
 // import { FiFilter } from "react-icons/fi"
 import FilterButton from "../../shared/components/filter/FilterButton"
-import HelperHelment from "../../helpers/HelperHelmet"
-import HelperSkeleton from "../../helpers/HelperSkeleton"
+import HelperHelment from "@helpers/HelperHelmet"
+import HelperSkeleton from "@helpers/HelperSkeleton"
 // import Breadcrumbs from "../../shared/components/breadcrumbs/Breadcrumbs"
 
 const Warehouse = () => {

@@ -8,7 +8,7 @@ import { Appwrite } from "../../lib/env"
 import { toast } from "sonner"
 import { FaUser } from "react-icons/fa"
 import { Query } from "appwrite"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 
 const AgendaCreate = () => {
     const formRef = useRef<HTMLFormElement>(null)

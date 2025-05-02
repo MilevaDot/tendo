@@ -1,5 +1,5 @@
 import { Heading, HStack, VStack, Text, Image, Box } from "@chakra-ui/react"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 import item1 from "../../assets/Nosotros_Item1.png"
 import item2 from "../../assets/Nosotros_Item2.png"
 import item3 from "../../assets/Nosotros_Item3.png"

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 import { ProductType } from "../../declarations/Warehouse"
 import { Link, useParams } from "react-router-dom"
 import { database } from "../../lib/appwrite"

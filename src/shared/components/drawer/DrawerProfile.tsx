@@ -2,10 +2,10 @@ import { ChevronDownIcon } from "@chakra-ui/icons"
 import { Avatar, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, HStack, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react"
 import { useContext } from "react"
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci"
-import { UserContext } from "../../context/UserContext"
 import { Link } from "react-router-dom"
 import { Paths } from "../../../router/routes"
 import { CgLogOut } from "react-icons/cg"
+import { UserContext } from "@context/UserContext"
 
 const DrawerProfile = ({ isOpen, onClose } : {
     isOpen: boolean

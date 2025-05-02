@@ -1,12 +1,13 @@
 import { Box, Center, Heading, HStack, Text} from "@chakra-ui/react"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa"
 import HomeSection from "../../shared/components/home/HomeSection"
 
 const Website = () => {
     return (
         <>
-            <HelperHelment title='Tendo | Home' />
+            <HelperHelment title='Tendo | Inicio' />
+
             <Box h='100vh' position='relative' overflow='hidden' width='100%'>
                 <video autoPlay loop muted playsInline
                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}>

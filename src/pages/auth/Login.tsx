@@ -3,8 +3,8 @@ import { FaLock, FaUser } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { Paths } from "../../router/routes"
 import { useContext } from "react"
-import { UserContext } from "../../shared/context/UserContext"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
+import { UserContext } from "@context/UserContext"
 
 
 const Login = () => {

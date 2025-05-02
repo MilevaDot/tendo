@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { Paths } from "../../../router/routes"
 import { DragHandleIcon } from "@chakra-ui/icons"
 import { useContext, useEffect } from "react"
-import { UserContext } from "../../context/UserContext"
+import { UserContext } from "@context/UserContext"
 
 const Navbar = () => {
 

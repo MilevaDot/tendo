@@ -7,7 +7,7 @@ import { toast } from "sonner"
 import { Paths } from "../../router/routes"
 import { Appwrite } from "../../lib/env"
 import { LuIdCard } from "react-icons/lu"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 
 const SignUp = () => {
     const navigate = useNavigate()

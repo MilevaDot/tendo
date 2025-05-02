@@ -5,7 +5,7 @@ import { Appwrite } from "../../lib/env"
 import { toast } from "sonner"
 import { ChevronRightIcon } from "@chakra-ui/icons"
 import { useRef } from "react"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 // import Breadcrumbs from "../../shared/components/breadcrumbs/Breadcrumbs"
 
 const WarehouseCreate = () => {

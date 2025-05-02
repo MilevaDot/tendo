@@ -1,5 +1,5 @@
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, SimpleGrid, Stack, Text, useDisclosure } from "@chakra-ui/react"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 import { useEffect, useState } from "react"
 import { database } from "../../lib/appwrite"
 import { Appwrite } from "../../lib/env"
