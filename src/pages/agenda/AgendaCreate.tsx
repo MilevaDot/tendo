@@ -32,7 +32,6 @@ const AgendaCreate = () => {
                 'dni': dni
             }
         ).then( async (res) => {
-            console.log(res)
             await storage.createFile(
                 Appwrite.bucketFilesId,
                 ID.unique(),
@@ -47,7 +46,6 @@ const AgendaCreate = () => {
                 const agendaRecord = await database.listDocuments(Appwrite.databaseId, Appwrite.collections.agenda, [
                     Query.equal('email', email as string)
                 ])
-                console.log(`${photoPreview}&mode=admin`)
                 await database.updateDocument(
                     Appwrite.databaseId,
                     Appwrite.collections.agenda,

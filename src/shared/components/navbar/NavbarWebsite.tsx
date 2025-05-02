@@ -1,15 +1,15 @@
 import { Avatar, Box, Button, Heading, HStack, useDisclosure } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import { Paths } from "../../../router/routes"
-import { useContext, useEffect, useLayoutEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import './navbarwebsite.css'
 import DrawerProfile from "../drawer/DrawerProfile"
-import { UserContext } from "@context/UserContext"
+import { useProfileStore } from "../../store/useProfileStore"
 
 const NavbarWebsite = () => {
     const [isScrolled, setIsScrolled] = useState(false)
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const context = useContext(UserContext)
+    const { profile, session, getSession, getProfile } = useProfileStore()
     const scrolling = () => {
         if ( window.scrollY >= 100 ) {
             setIsScrolled(true)
@@ -23,8 +23,8 @@ const NavbarWebsite = () => {
     }, [])
 
     useEffect(() => {
-        context?.getSession()
-        context?.getProfile()
+        getSession()
+        getProfile()
     }, [])
     return (
         <>
@@ -44,10 +44,10 @@ const NavbarWebsite = () => {
                     <Link to={Paths.WebsiteProduct}>Productos</Link>
                     <Link to={Paths.WebsiteService}>Servicios</Link>
                     {
-                        context?.session
+                        session
                             ?
                                 <Button variant='ghost' onClick={onOpen}>
-                                    <Avatar size='sm' src={context.profile?.photo_address} />
+                                    <Avatar size='sm' src={profile?.photo_address} />
                                 </Button>
                             :
                             <Link to={Paths.Login}>Ingresar</Link>

@@ -6,12 +6,14 @@ import { Link } from "react-router-dom"
 import { Paths } from "../../../router/routes"
 import { CgLogOut } from "react-icons/cg"
 import { UserContext } from "@context/UserContext"
+import { useProfileStore } from "../../store/useProfileStore"
 
 const DrawerProfile = ({ isOpen, onClose } : {
     isOpen: boolean
     onClose: () => void
 }) => {
     const context = useContext(UserContext)
+    const { profile, session } = useProfileStore()
     return (
         <Drawer
             isOpen={isOpen}
@@ -23,9 +25,9 @@ const DrawerProfile = ({ isOpen, onClose } : {
             <DrawerCloseButton />
             <DrawerHeader>
                 <HStack>
-                    <Avatar src={context?.profile?.photo_address} />
+                    <Avatar src={profile?.photo_address} />
                     <Text>
-                        {context?.session?.name}
+                        {session?.name}
                     </Text>
                 </HStack>
             </DrawerHeader>
@@ -82,7 +84,7 @@ const DrawerProfile = ({ isOpen, onClose } : {
                 <br />
                 <br />
                 {
-                    context?.profile?.type == 'Interno'
+                    profile?.type == 'Interno'
                         ?
                         <Link to={Paths.MainMenu}>
                             <Button colorScheme='teal'>Tendo!</Button>

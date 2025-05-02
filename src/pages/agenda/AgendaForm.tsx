@@ -24,7 +24,6 @@ const AgendaForm = () => {
     const { id } = useParams()
 
     const getAgenda = async () => {
-        console.log(context)
         const response = await database.getDocument(
             Appwrite.databaseId,
             Appwrite.collections.agenda, id!)
@@ -78,7 +77,6 @@ const AgendaForm = () => {
             }).catch(() => {
                 toast.error('No se logró|')
             })
-            console.log(response)
         })
     }
 

@@ -1,8 +1,9 @@
 import { create } from "zustand";
+import { persist } from 'zustand/middleware'
 import { Cart } from "../../declarations/Cart";
 import { ProductType } from "../../declarations/Warehouse";
 
-export const useCart = create<Cart>((set) => ({
+export const useCart = create(persist<Cart>((set) => ({
     productCart: [],
     
     addToCart: (product: ProductType) => set((state) => {
@@ -36,4 +37,6 @@ export const useCart = create<Cart>((set) => ({
         productCart: []
     }))
 
+}), {
+    name: 'shoppingCart'
 }))
