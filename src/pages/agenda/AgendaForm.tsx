@@ -1,6 +1,6 @@
 import { ChevronRightIcon, DeleteIcon } from "@chakra-ui/icons"
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, FormControl, FormLabel, HStack, Icon, Image, Input } from "@chakra-ui/react"
-import { useContext, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { AgendaType } from "../../declarations/Agenda"
 import { database, ID, storage } from "../../lib/appwrite"
 import { Appwrite } from "../../lib/env"
@@ -10,14 +10,12 @@ import './agendaform.css'
 import { FaUser } from "react-icons/fa"
 import { Paths } from "../../router/routes"
 import HelperHelment from "@helpers/HelperHelmet"
-import { UserContext } from "@context/UserContext"
 
 const AgendaForm = () => {
     const [agenda, setAgenda] = useState<AgendaType>()
     const [edit, setEdit] = useState<boolean>(false)
     const [invisible, setInvisible] = useState<boolean>(true)
     const formRef = useRef<HTMLFormElement>(null)
-    const context = useContext(UserContext)
 
 
     const navigate = useNavigate()
