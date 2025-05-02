@@ -1,7 +1,7 @@
 import { Box, Button, Stack } from "@chakra-ui/react"
 import HelperHelment from "@helpers/HelperHelmet"
 import { GiSewingMachine } from "react-icons/gi"
-import { FaTshirt, FaCheckCircle, FaRulerCombined, FaUserTie, FaSoap, FaTruck, FaLeaf } from 'react-icons/fa'
+import { FaTshirt, FaCheckCircle, FaRulerCombined, FaUserTie, FaSoap, FaTruck, FaLeaf, FaWhatsapp } from 'react-icons/fa'
 import ServiceCard from "../../shared/components/collage/ServiceCard"
 import ImageGrid from "../../shared/components/collage/ImageGrid"
 
@@ -41,11 +41,13 @@ const WebsiteService = () => {
                     ]}
                     cita={
                         <Button
+                            alignItems="center"
                             colorScheme="teal"
                             size="md"
                             onClick={() => window.open("https://wa.me/+51973280498", "_blank")}
+                            leftIcon={<FaWhatsapp/>}
                         >
-                            Agenda tu cita
+                            Agenda aquí
                         </Button>
                     }
                 />
@@ -65,9 +67,11 @@ const WebsiteService = () => {
                     ]}
                     cita={
                         <Button
+                            alignItems="center"
                             colorScheme="teal"
                             size="md"
                             onClick={() => window.open("https://wa.me/+51963246850", "_blank")}
+                            leftIcon={<FaWhatsapp/>}
                         >
                             Agenda tu cita
                         </Button>
