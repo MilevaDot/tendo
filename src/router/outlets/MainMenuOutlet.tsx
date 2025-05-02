@@ -1,13 +1,12 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { Paths } from "../routes"
-import { useContext } from "react"
-import { UserContext } from "@context/UserContext"
-// import { UserContext } from "../../shared/context/UserContext"
+
+import { useProfileStore } from "../../shared/store/useProfileStore"
 
 const MainMenuOutlet = () => {
-    const context = useContext(UserContext)
+    const { profile } = useProfileStore()
     return (
-        context?.profile?.type == 'Interno'
+        profile?.type == 'Interno'
             ?
             <Outlet />
             :

@@ -4,13 +4,15 @@ import { Paths } from "../../../router/routes"
 import { DragHandleIcon } from "@chakra-ui/icons"
 import { useContext, useEffect } from "react"
 import { UserContext } from "@context/UserContext"
+import { useProfileStore } from "../../store/useProfileStore"
 
 const Navbar = () => {
 
     const context = useContext(UserContext)
+    const { profile, getSession, getProfile } = useProfileStore()
     useEffect(() => {
-        context?.getSession()
-        context?.getProfile()
+        getSession()
+        getProfile()
     }, [])
 
     return (
@@ -43,19 +45,16 @@ const Navbar = () => {
                         _hover={{ bg: 'teal.500' }}
                         >
                         <Flex gap='4px' alignItems='center' flexWrap='wrap'>
-                            <Avatar size='sm' name={context?.profile?.name} src={context?.profile?.photo_address} />
+                            <Avatar size='sm' name={profile?.name} src={profile?.photo_address} />
                             <Flex alignItems='start' flexDirection='column'>
-                                <Heading size='sm'>{context?.profile?.name}</Heading>
-                                <Text fontSize='sm'>{context?.profile?.email}</Text>
+                                <Heading size='sm'>{profile?.name}</Heading>
+                                <Text fontSize='sm'>{profile?.email}</Text>
                             </Flex>
                         </Flex>
                     </MenuButton>
                     <MenuList>
-                        <MenuItem as={Link} to={`/agenda/${context?.profile?.$id}`}>Mi perfil</MenuItem>
-                        {/* <Link to={`/agenda/${contact?.$id}`}><MenuItem>Mi perfil</MenuItem></Link> */}
-                        {/* <Link to={`/agenda/${context?.profile?.$id}`}><MenuItem>Mi perfil</MenuItem></Link> */}
+                        <MenuItem as={Link} to={`/agenda/${profile?.$id}`}>Mi perfil</MenuItem>
                         <MenuItem>Mis preferencias</MenuItem>
-                        {/* <MenuItem onClick={logOut}>Cerrar sesión</MenuItem> */}
                         <MenuItem onClick={() => context?.logOut()}>Cerrar sesión</MenuItem>
                     </MenuList>
                 </Menu>
