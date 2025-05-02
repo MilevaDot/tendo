@@ -6,8 +6,8 @@ const ServiceCard = ({ title, icon, description, images, tooltip, benefits, slog
     return (
         <Tooltip label={tooltip} aria-label={title}>
             <Box bg="#f4f4f4" p="2rem" borderRadius="10px" boxShadow="lg"
-                _hover={{boxShadow: 'xl', transform: 'scale(1.05)', transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-                }}
+                // _hover={{boxShadow: 'xl', transform: 'scale(1.05)', transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                // }}
                 mb="2rem" display="flex" flexDirection="column" alignItems="center" 
                 transition="transform 0.3s ease, box-shadow 0.3s ease" padding={5} gap={3}
             >
