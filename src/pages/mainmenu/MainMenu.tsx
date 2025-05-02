@@ -21,7 +21,7 @@ const MainMenu = () => {
                     p='40px'
                     backgroundColor='var(--background)'
                     >
-                    <Image src='src\assets\logo_tendo.png' alt='Logo' />
+                    <Image src='/logo_tendo.png' alt='Logo' />
                     <Divider m='20px 0px' />
                     <VStack alignItems='start'>
                         <Menu>

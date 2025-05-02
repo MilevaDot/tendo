@@ -62,7 +62,7 @@ const Voucher = ({productCart}: {
                 <Page size='A4'>
                     <View style={styles.header}>
                         <View style={styles.headerLogo}>
-                            <Image src='src\assets\logo_tendo.png' />
+                            <Image src='/logo_tendo.png' />
                         </View>
                         <View>
                             <Text>Boleta de Venta</Text>
