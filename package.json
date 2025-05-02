@@ -15,6 +15,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@react-pdf/renderer": "^4.3.0",
+    "@vercel/analytics": "^1.5.0",
     "aos": "^2.3.4",
     "appwrite": "^17.0.1",
     "framer-motion": "^12.6.3",
