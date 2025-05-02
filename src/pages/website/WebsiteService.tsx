@@ -1,5 +1,5 @@
 import { Box, Button, Stack } from "@chakra-ui/react"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 import { GiSewingMachine } from "react-icons/gi"
 import { FaTshirt, FaCheckCircle, FaRulerCombined, FaUserTie, FaSoap, FaTruck, FaLeaf } from 'react-icons/fa'
 import ServiceCard from "../../shared/components/collage/ServiceCard"

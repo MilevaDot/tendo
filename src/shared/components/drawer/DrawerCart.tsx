@@ -3,6 +3,9 @@ import { useCart } from "../../store/useCart"
 import { AddIcon, DeleteIcon, MinusIcon } from "@chakra-ui/icons"
 import { CartItem } from "../../../declarations/Cart"
 import { FaRegTrashCan } from "react-icons/fa6"
+import { LuShoppingCart } from "react-icons/lu"
+import { Link } from "react-router-dom"
+import { Paths } from "../../../router/routes"
 
 const DrawerCart = ({ isOpen, onClose } : {
     isOpen: boolean
@@ -64,7 +67,9 @@ const DrawerCart = ({ isOpen, onClose } : {
                     <Button colorScheme='orange' variant='outline' mr={3} leftIcon={<FaRegTrashCan />} onClick={() => clearCart()}>
                         Vaciar
                     </Button>
-                    <Button colorScheme='blue'>Save</Button>
+                    <Link to={Paths.WebsiteCart}>
+                        <Button colorScheme='teal' leftIcon={<LuShoppingCart />}>Comprar!</Button>
+                    </Link>
                 </DrawerFooter>
             </DrawerContent>
         </Drawer>

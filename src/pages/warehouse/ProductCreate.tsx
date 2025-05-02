@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { database, ID, storage } from "../../lib/appwrite";
 import { Appwrite } from "../../lib/env";
 import { toast } from "sonner";
-import HelperHelment from "../../helpers/HelperHelmet";
+import HelperHelment from "@helpers/HelperHelmet"
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Checkbox, FormControl, FormLabel, HStack, Icon, Image, Input } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Link, useNavigate } from "react-router-dom";

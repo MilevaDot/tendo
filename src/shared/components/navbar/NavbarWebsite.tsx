@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 import { Paths } from "../../../router/routes"
 import { useContext, useEffect, useLayoutEffect, useState } from "react"
 import './navbarwebsite.css'
-import { UserContext } from "../../context/UserContext"
 import DrawerProfile from "../drawer/DrawerProfile"
+import { UserContext } from "@context/UserContext"
 
 const NavbarWebsite = () => {
     const [isScrolled, setIsScrolled] = useState(false)

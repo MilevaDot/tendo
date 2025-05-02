@@ -6,7 +6,7 @@ import { Query } from "appwrite"
 import { toast } from "sonner"
 import { Link } from "react-router-dom"
 import { Paths } from "../../router/routes"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 
 const ForgottenPassword = () => {
     const sendMagicLink = async (e: React.FormEvent<HTMLFormElement>) => {

@@ -1,7 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { Paths } from "../routes"
 import { useContext } from "react"
-import { UserContext } from "../../shared/context/UserContext"
+import { UserContext } from "@context/UserContext"
+// import { UserContext } from "../../shared/context/UserContext"
 
 const MainMenuOutlet = () => {
     const context = useContext(UserContext)

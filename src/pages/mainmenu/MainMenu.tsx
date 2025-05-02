@@ -9,7 +9,7 @@ import { GoTasklist } from "react-icons/go"
 import { MdOutlineDashboard } from "react-icons/md"
 import { PiCalculatorBold, PiHandshake, PiPantsLight } from "react-icons/pi"
 import { Link } from "react-router-dom"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 import { Paths } from "../../router/routes"
 
 const MainMenu = () => {

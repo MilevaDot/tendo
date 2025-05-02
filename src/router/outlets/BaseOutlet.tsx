@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router-dom"
 import BaseLayout from "../../shared/layouts/BaseLayout"
 import { Paths } from "../routes"
 import { useContext } from "react"
-import { UserContext } from "../../shared/context/UserContext"
+import { UserContext } from "@context/UserContext"
 
 const BaseOutlet = () => {
     const context = useContext(UserContext)
@@ -11,7 +11,7 @@ const BaseOutlet = () => {
             context?.profile?.type == 'Interno'
                 ?
                 <BaseLayout>
-                    <Outlet />            
+                    <Outlet />       
                 </BaseLayout>
                 :
                 <Navigate to={Paths.Website} />

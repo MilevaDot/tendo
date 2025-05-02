@@ -1,5 +1,5 @@
 import { Box, Text, VStack } from "@chakra-ui/react"
-import WebsiteHome from "../../../shared/components/home/websiteHome"
+import WebsiteHome from "./WebsiteHome"
 
 const HomeSection = () => (
   <Box m="40px 80px" display="flex" gap={8} flexWrap="wrap" justifyContent="space-between">

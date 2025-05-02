@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 import { database } from "../../lib/appwrite"
 import { Appwrite } from "../../lib/env"
 import { ProductType } from "../../declarations/Warehouse"
@@ -8,7 +8,7 @@ import { Badge, Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Checkbo
 import { ChevronRightIcon, Search2Icon } from "@chakra-ui/icons"
 import { Link } from "react-router-dom"
 import { Paths } from "../../router/routes"
-import HelperSkeleton from "../../helpers/HelperSkeleton"
+import HelperSkeleton from "@helpers/HelperSkeleton"
 
 const Products = () => {
     const [products, setProducts] = useState<Array<ProductType>>()

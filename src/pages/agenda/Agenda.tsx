@@ -8,8 +8,8 @@ import { database } from "../../lib/appwrite"
 import { Appwrite } from "../../lib/env"
 import { Query } from "appwrite"
 import { Paths } from "../../router/routes"
-import HelperHelment from "../../helpers/HelperHelmet"
-import HelperSkeleton from "../../helpers/HelperSkeleton"
+import HelperHelment from "@helpers/HelperHelmet"
+import HelperSkeleton from "@helpers/HelperSkeleton"
 
 const Agenda = () => {
     const [agendas, setAgendas] = useState<Array<AgendaType>>()

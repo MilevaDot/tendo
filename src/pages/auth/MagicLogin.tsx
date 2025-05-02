@@ -3,7 +3,7 @@ import { account } from "../../lib/appwrite"
 import { useNavigate } from "react-router-dom"
 import { Paths } from "../../router/routes"
 import { toast } from "sonner"
-import HelperHelment from "../../helpers/HelperHelmet"
+import HelperHelment from "@helpers/HelperHelmet"
 
 const MagicLogin = () => {
 
