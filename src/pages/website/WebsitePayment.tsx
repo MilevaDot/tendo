@@ -68,7 +68,7 @@ const WebsitePayment = () => {
                                 <Heading size='md'>Yape</Heading>
                             </CardHeader>
                             <CardBody>
-                                <Image src='src\assets\yape_logo.png' alt='Yape logo' />
+                                <Image src='/yape_logo.png' alt='Yape logo' />
                             </CardBody>
                             <CardFooter justify='center'>
                                 <Button
@@ -85,7 +85,7 @@ const WebsitePayment = () => {
                                 <Heading size='md'>Visa</Heading>
                             </CardHeader>
                             <CardBody>
-                                <Image src='src\assets\visa_logo.png' alt='Visa logo' />
+                                <Image src='/visa_logo.png' alt='Visa logo' />
                             </CardBody>
                             <CardFooter justify='center'>
                                 <Button
